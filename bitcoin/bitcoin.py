@@ -15,7 +15,7 @@ bit = r.json()
 bpi = bit["bpi"]
 curre = bpi["USD"]
 price = curre["rate_float"]
-price = float(price) * amount
+price = price * amount
 
 
 print(f"${price:,.4f}")
