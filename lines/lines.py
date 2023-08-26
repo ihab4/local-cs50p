@@ -13,13 +13,28 @@ def main():
             except FileNotFoundError:
                 sys.exit("File does not exist")
 
-            code = [line.lstrip() for line in file]
-            clean_code = [line for line in code if not line.startswith("#") and len(line) != 0]
+            code = strip_line(file)
+            clean_code = comment_blank(code)
             code_copy = doc_string(clean_code)
             print(len(code_copy))
             file.close()
         else:
             sys.exit("Not a python file")
+
+
+def strip_line(file):
+    code = []
+    for line in file:
+        code.append(line.lstrip())
+    return code
+
+
+def comment_blank(code):
+    clean_code = []
+    for line in code:
+        if not line.startswith("#") and len(line) != 0:
+            clean_code.append(line)
+    return clean_code
 
 
 def doc_string(clean_code):
