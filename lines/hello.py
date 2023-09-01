@@ -12,8 +12,7 @@ print(f"hello, {name}")
 def main():
 
     """this is
-    a doc 
-    abc"""
+    a doc abc"""
     fra = get_fraction()
     if fra <= 0.01:
         print("E")
