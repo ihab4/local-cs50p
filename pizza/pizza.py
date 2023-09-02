@@ -10,11 +10,11 @@ def main():
     except FileNotFoundError:
         sys.exit("File does not exist")
     rows = []
-    reader = csv.reader(csvfile)
+    reader = csv.DictReader(csvfile)
     for row in reader:
         rows.append(row)
-
-    print(tabulate(rows, headers="firstrow", tablefmt="grid"))
+    print(rows)
+    print(tabulate(rows, headers="keys", tablefmt="grid"))
 
 
 def check_command_line():
